@@ -3,8 +3,7 @@ WELCOME to version 1 of Word Count Lookup!!!!
 I hope you will stay awhile, please enjoy your stay!
 <3
 
-Author: Julia Motzko
-GitHub: JuliusCaesar
+Author: JuliusCaesar
 Date: 3/2025
 '''
 
