@@ -17,18 +17,23 @@ def UserInput():
     while q is True:
         userInput = 5
         value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate.\nWord count: ")
-        
-        if value.__contains__(",") or value.__contains__("."):
-            if len(value) > 4:
-                tempStr = str(value).strip()
-                tempStr = tempStr.replace(",", "")
-                tempStr = tempStr.replace(".", "")
-                userInput = int(tempStr)
+        if value == 0:
+            return
+        try:
+            if value.__contains__(",") or value.__contains__("."):
+                if len(value) > 4:
+                    tempStr = str(value).strip()
+                    tempStr = tempStr.replace(",", "")
+                    tempStr = tempStr.replace(".", "")
+                    userInput = int(tempStr)
+                else:
+                    print("no")
+                    continue
             else:
-                print("no")
-                break
-        else:
-            userInput = int(value)
+                userInput = int(value)
+        except:
+            print("what in gods name did you do???")
+            break
 
         if userInput == 0:
             q = False
