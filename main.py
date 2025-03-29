@@ -17,7 +17,8 @@ def UserInput():
     q = True
     while q is True:
         userInput = 5
-        value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate.\nWord count: ")
+        value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate."
+                      + "\nWord count: ")
         if value == 0:
             return
         try:
@@ -27,7 +28,7 @@ def UserInput():
                         tempStr = str(value).strip()
                         tempStr = tempStr.replace(",", "")
                         tempStr = tempStr.replace(".", "")
-                        userInput = int(tempStr)
+                        userInput = int(tempStr) 
                     else:
                         print("no")
                         continue
