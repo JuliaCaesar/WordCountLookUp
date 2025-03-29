@@ -8,6 +8,7 @@ Date: 3/2025
 '''
 from colorama import Fore, Back, Style
 import re
+import keyboard
 
 # https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number
 def has_numbers(inputString):
@@ -19,6 +20,7 @@ def UserInput():
         userInput = 5
         value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate."
                       + "\nWord count: ")
+    
         if value == 0:
             return
         try:
