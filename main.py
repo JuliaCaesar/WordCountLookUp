@@ -6,30 +6,40 @@ I hope you will stay awhile, please enjoy your stay!
 Author: JuliaCaesar
 Date: 3/2025
 '''
-
 from colorama import Fore, Back, Style
 
-def UserInput():
-    introText = "WELCOME TO THE WORD COUNT LOOK UP!"
-    centerIntroText = introText.center(50)
-    print("--------------------------------------------------")
-    print(centerIntroText)
-    print("--------------------------------------------------")
+# https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number
+def has_numbers(inputString):
+    return any(char.isdigit() for char in inputString)
 
+def UserInput():
     q = True
     while q is True:
-        userInput = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate.\nWord count: ")
-        userInput = int(userInput)
-    
+        userInput = 5
+        value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate.\nWord count: ")
+        
+        if value.__contains__(",") or value.__contains__("."):
+            if len(value) > 4:
+                tempStr = str(value).strip()
+                tempStr = tempStr.replace(",", "")
+                tempStr = tempStr.replace(".", "")
+                userInput = int(tempStr)
+            else:
+                print("no")
+                break
+        else:
+            userInput = int(value)
+
         if userInput == 0:
             q = False
         else:
             LookUp(userInput)
 
 def LookUp(userInput):
-    
+    userInput = int(userInput)
     temp = userInput
-    # hardcoded dicts cause fuck you thats why
+
+    #region hardcoded dicts cause fuck you thats why
     wordCountList = {
         1177   : "The Raven",
         1374   : "Sleeping Beauty",
@@ -176,6 +186,7 @@ def LookUp(userInput):
         567246 : "Written by Leo Tolstoy with roughly 1,260 pages!\nYou can visit this site for more information: https://www.goodreads.com/book/show/656.War_and_Peace?from_search=true&from_srp=true&qid=XZIrcfKqfC&rank=1 \n",
         600000 : "Written by Alan Moore with roughly 1,333 pages!\nYou can visit this site for more information: https://www.goodreads.com/book/show/38246560-jerusalem?from_search=true&from_srp=true&qid=kP64DsXGwT&rank=1 \n",
     }
+    #endregion 
 
     findNumber = min(wordCountList, key=lambda x:abs(x-userInput))
 
@@ -235,6 +246,11 @@ def wordsToMinutes(wordCount):
         print(f"\nwoops")
 
 def main():
+    introText = "WELCOME TO THE WORD COUNT LOOK UP!"
+    centerIntroText = introText.center(50)
+    print("--------------------------------------------------")
+    print(centerIntroText)
+    print("--------------------------------------------------")
     UserInput()
  
 if __name__=="__main__":
