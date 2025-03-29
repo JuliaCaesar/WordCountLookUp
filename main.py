@@ -7,6 +7,7 @@ Author: JuliaCaesar
 Date: 3/2025
 '''
 from colorama import Fore, Back, Style
+import re
 
 # https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number
 def has_numbers(inputString):
@@ -21,11 +22,15 @@ def UserInput():
             return
         try:
             if value.__contains__(",") or value.__contains__("."):
-                if len(value) > 4:
-                    tempStr = str(value).strip()
-                    tempStr = tempStr.replace(",", "")
-                    tempStr = tempStr.replace(".", "")
-                    userInput = int(tempStr)
+                if re.match("^\d{1,3}(,\d{3})*$", value) or re.match("^\d{1,3}(.\d{3})*$", value):
+                    if len(value) > 4:
+                        tempStr = str(value).strip()
+                        tempStr = tempStr.replace(",", "")
+                        tempStr = tempStr.replace(".", "")
+                        userInput = int(tempStr)
+                    else:
+                        print("no")
+                        continue
                 else:
                     print("no")
                     continue
