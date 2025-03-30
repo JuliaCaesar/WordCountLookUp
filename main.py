@@ -260,13 +260,37 @@ def wordsToMinutes(wordCount):
     else:
         print(f"\nwoops")
 
+def searchTimeLength():
+    try:
+        wordCount = input("Please enter the word count you would like to learn the time length of: ")
+        wordCount = int(wordCount)
+        wordsToMinutes(wordCount)
+    except:
+        print("Invalid input, please try again: ")
+        searchTimeLength()
+
 def main():
+    print("Please select which search you would like to use: ")
+    print("Enter 1 to search for books based on word count")
+    print("Enter 2 to search for length of time to read based on word count")
+    print("Enter 0 to quit.\n")
+    promptInput = input()
+    promptInput = str(promptInput)
+
+    if promptInput == "1":
+        UserInput()
+    elif promptInput == "2":
+        searchTimeLength()
+    elif promptInput == "0":
+        return
+    else:
+        print("\nInvalid input, please try again: ")
+        main()
+    
+if __name__=="__main__":
     introText = "WELCOME TO THE WORD COUNT LOOK UP!"
     centerIntroText = introText.center(50)
     print("--------------------------------------------------")
     print(centerIntroText)
     print("--------------------------------------------------")
-    UserInput()
- 
-if __name__=="__main__":
     main()
