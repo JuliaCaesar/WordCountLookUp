@@ -8,6 +8,9 @@ Date: 3/2025
 '''
 from colorama import Fore, Back, Style
 import re
+import keyboard
+import msvcrt
+
 
 # https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number
 def has_numbers(inputString):
@@ -19,6 +22,7 @@ def UserInput():
         userInput = 5
         value = input(f"\nPlease enter the word count you would like to look up\nPress {Fore.CYAN}0{Style.RESET_ALL} to terminate."
                       + "\nWord count: ")
+    
         if value == 0:
             return
         try:
@@ -38,7 +42,7 @@ def UserInput():
             else:
                 userInput = int(value)
         except:
-            print("what in gods name did you do???")
+            #print("what in gods name did you do???")
             break
 
         if userInput == 0:
@@ -207,13 +211,13 @@ def LookUp(userInput):
     print(f"\nYour word count is closest to the book: {Fore.RED}{bookName}{Style.RESET_ALL}")
     print(f"\nWith roughly {Fore.RED}{addComma}{Style.RESET_ALL} words!")
     userInput = input(f"\nPress {Fore.CYAN}1{Style.RESET_ALL} to learn more, {Fore.CYAN}2{Style.RESET_ALL} for " +
-                      f"estimated read time, or {Fore.CYAN}any key{Style.RESET_ALL} to go back: ").strip()
+                      f"estimated read time, or {Fore.CYAN}Enter{Style.RESET_ALL} to go back: ").strip()
 
     if userInput == "1":
         print(f"\nSure! Here's more information about the book: ")
         print(f"\n{Fore.GREEN}{extraInfoDict[findNumber]}{Style.RESET_ALL}")
         while True:
-            userInput = input(f"\nEnter {Fore.CYAN}2{Style.RESET_ALL} for further information, or {Fore.CYAN}any key{Style.RESET_ALL} to go back: ").strip()
+            userInput = input(f"\nEnter {Fore.CYAN}2{Style.RESET_ALL} for further information, or {Fore.CYAN}Enter{Style.RESET_ALL} to go back: ").strip()
             if userInput == "2":
                 wordsToMinutes(temp)
                 break
@@ -222,7 +226,7 @@ def LookUp(userInput):
     elif userInput == "2":
         wordsToMinutes(temp)
         while True:
-            userInput = input(f"\nEnter {Fore.CYAN}1{Style.RESET_ALL} for book information, or {Fore.CYAN}any key{Style.RESET_ALL} to go back: ").strip()
+            userInput = input(f"\nEnter {Fore.CYAN}1{Style.RESET_ALL} for book information, or {Fore.CYAN}Enter{Style.RESET_ALL} to go back: ").strip()
             if userInput == "1":
                 print(f"\n{Fore.GREEN}{extraInfoDict[findNumber]}{Style.RESET_ALL}")
                 break
