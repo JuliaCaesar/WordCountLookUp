@@ -13,8 +13,8 @@ Feel free to fork this repo and change that to your hearts desire.
 
 **Updates:**  
 <span style="color:rgb(20, 160, 51)">Version 1.0</span> = release of project 🥳  
-<span style="color:rgb(20, 160, 51)">Version 1.1</span> = added much needed error handling 💀
-<span style="color:rgb(51, 255, 0)">Version 1.2</span> = Updated inaccurate data, included a search feature to search word count and get the length of time to read. 
+<span style="color:rgb(20, 160, 51)">Version 1.1</span> = added much needed error handling 💀  
+<span style="color:rgb(51, 255, 0)">Version 1.2</span> = Updated inaccurate data, included a search feature to search word count and get the length of time to read.  
 
 
 <span style="color: hsl(212, 100.00%, 61.80%)">**Come back later for future implementations of this project!**</span>  
